@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual House Tour</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .room {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            background-color: #ddd;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: #555;
+        }
+        #kuula-embed {
+            width: 80%;
+            height: 640px;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="room" onclick="navigateToRoom('https://kuula.co/post/n1/collection/7ck1h')">
+            Room 1
+        </div>
+        <div class="room" onclick="navigateToRoom('https://kuula.co/post/5n7KF/collection/7ck1h')">
+            Room 2
+        </div>
+        <div class="room" onclick="navigateToRoom('https://kuula.co/post/5n7Kq/collection/7ck1h')">
+            Room 3
+        </div>
+        <div class="room" onclick="navigateToRoom('https://kuula.co/post/5n7KJ/collection/7ck1h')">
+            Room 4
+        </div>
+    </div>
+
+    <iframe id="kuula-embed" src="https://kuula.co/share/collection/7ck1h?logo=-1&info=0&fs=1&vr=1&sd=1&thumbs=1"></iframe>
+
+    <script>
+        function navigateToRoom(url) {
+            const embedUrl = url + '?logo=-1&info=0&fs=1&vr=1&sd=1&thumbs=1';
+            document.getElementById('kuula-embed').src = embedUrl;
+        }
+    </script>
+</body>
+</html>
